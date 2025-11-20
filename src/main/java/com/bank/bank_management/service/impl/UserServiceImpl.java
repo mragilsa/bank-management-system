@@ -4,6 +4,7 @@ import com.bank.bank_management.dto.UserLoginDTO;
 import com.bank.bank_management.dto.UserRegisterDTO;
 import com.bank.bank_management.dto.UserResponseDTO;
 import com.bank.bank_management.entity.User;
+import com.bank.bank_management.repository.TransactionRepository;
 import com.bank.bank_management.repository.UserRepository;
 import com.bank.bank_management.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private TransactionRepository transactionRepository;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -79,7 +83,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(UUID id) {
-        userRepository.deleteById(id);
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        userRepository.delete(user);
     }
 
     @Override
