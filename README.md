@@ -26,9 +26,9 @@ Open the project in your preferred IDE to inspect and run the code.
 ### 2. Setup Environment Variables
 Create .env file in project root:
 ```
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=admin123
-POSTGRES_DB=mybank
+POSTGRES_USER=your_postgres_user
+POSTGRES_PASSWORD=your_postgres_password
+POSTGRES_DB=your_postgres_db
 ```
 > **Note:** Make sure these values match what is set in `src/main/resources/application.properties` for Spring Boot datasource.
 
