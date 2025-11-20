@@ -30,6 +30,7 @@ POSTGRES_USER=admin
 POSTGRES_PASSWORD=admin123
 POSTGRES_DB=mybank
 ```
+> **Note:** Make sure these values match what is set in `src/main/resources/application.properties` for Spring Boot datasource.
 
 ### 3. Run Database with Docker Compose
 ```
